@@ -1,17 +1,20 @@
 ---
-- hosts: all
+- hosts: aws
   become: true
   tasks:
-    - name: Install docker
-      apt:
-        name: docker-ce
-        state: latest
-
-    
-    - name: Set authorized key taken from file
-      user: ec2-user
+  - name: Set authorized key taken from file
+    ansible.posix.authorized_key:
+      user: ubuntu
       state: present
       key: "{{ lookup('file', 'id_rsa.pub') }}"
 
-...
+  - name: Install docker
+    apt:
+      name: docker.io
+      state: latest
+  
+  - name: Start container
+    ansible.builtin.shell: docker run -d -p 8080:80 chishyr/2048
+
+
 
