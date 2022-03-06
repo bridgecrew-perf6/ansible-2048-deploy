@@ -1,0 +1,15 @@
+---
+- hosts: all
+  become: true
+  tasks:
+    - name: Install docker
+      apt:
+        name: docker-ce
+        state: latest
+
+    
+    - name: Set authorized key taken from file
+      user: ec2-user
+      state: present
+      key: "{{ lookup('file', 'id_rsa.pub') }}"
+
