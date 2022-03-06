@@ -14,7 +14,7 @@
       state: latest
   
   - name: Start container
-    ansible.builtin.shell: docker run -d -p 8080:80 chishyr/2048
+    ansible.builtin.shell: docker run -d -p 80:80 chishyr/2048
 
 
 
