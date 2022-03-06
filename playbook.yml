@@ -13,3 +13,5 @@
       state: present
       key: "{{ lookup('file', 'id_rsa.pub') }}"
 
+...
+
