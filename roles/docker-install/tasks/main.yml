@@ -6,6 +6,7 @@
       - ca-certificates
       - curl
       - software-properties-common
+      - pip
     state: present
 
 - name: Add docker GPG key
@@ -35,4 +36,7 @@
     name: ubuntu
     append: yes
     groups: docker
-  
+
+- name: Install docker python package
+  pip:
+    name: docker  
