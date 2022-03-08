@@ -1,0 +1,6 @@
+---
+- name: Set authorized key
+  ansible.posix.authorized_key:
+    user: ubuntu
+    state: present
+    key: https://github.com/hiering.keys
