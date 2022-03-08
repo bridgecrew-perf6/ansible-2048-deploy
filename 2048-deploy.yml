@@ -1,9 +1,10 @@
 ---
 - name: Set ssh key
   roles:
-    - {role: asnible-2048-deploy/add-ssh-key, tags: ["set-key"]}
+    - {role: asnible-2048-deploy/add-ssh-keys, tags: ["set-key"]}
 
 - name: Install docker
+  become: true
   roles:
     - {role: asnible-2048-deploy/docker-install, tags: ["install-docker"]}
 

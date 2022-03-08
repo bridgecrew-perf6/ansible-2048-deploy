@@ -1,2 +1,6 @@
 - name: Deploy 2048
-  
+  docker_container:
+    name: 2048
+    image: chishyr/2048
+    exposed_ports: 80
+    state: present
