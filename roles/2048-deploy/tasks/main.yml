@@ -5,3 +5,4 @@
     published_ports: [ "80:80" ]
     state: started
     restart: yes
+    restart_policy: on-failure
