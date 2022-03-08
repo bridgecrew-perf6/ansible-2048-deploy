@@ -2,6 +2,6 @@
   docker_container:
     name: 2048
     image: chishyr/2048
-    exposed_ports: 80
+    published_ports: [ "80:80" ]
     state: started
     restart: yes
