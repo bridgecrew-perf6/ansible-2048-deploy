@@ -1,13 +1,16 @@
 ---
 - name: Set ssh key
+  hosts: all
   roles:
-    - {role: asnible-2048-deploy/add-ssh-keys, tags: ["set-key"]}
+    - { role: add-ssh-keys, tags: ["set-key"] }
 
 - name: Install docker
   become: true
+  hosts: all
   roles:
-    - {role: asnible-2048-deploy/docker-install, tags: ["install-docker"]}
+    - { role: docker-install, tags: ["install-docker"] }
 
 - name: Deploy 2048
+  hosts: all
   roles:
-    - {role: ansible-2048-deploy/2048-deploy, tags: ["2048-deploy"]}
+    - { role: 2048-deploy, tags: ["2048-deploy"] }
