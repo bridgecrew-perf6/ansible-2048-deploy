@@ -6,7 +6,6 @@
       - ca-certificates
       - curl
       - software-properties-common
-      - pip
     state: present
 
 - name: Add docker GPG key
@@ -22,9 +21,14 @@
 
 - name: Install docker
   apt:
-    name: docker-ce
+    name: docker-ce, python3-pip
     state: latest
     update_cache: yes
+
+- name: Make sure a service unit is running
+  ansible.builtin.systemd:
+    state: started
+    name: docker
 
 - name: Create group
   group:

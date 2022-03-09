@@ -11,6 +11,7 @@
     - { role: docker-install, tags: ["install-docker"] }
 
 - name: Deploy 2048
+  become: true
   hosts: all
   roles:
     - { role: 2048-deploy, tags: ["2048-deploy"] }
